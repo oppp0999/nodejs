@@ -1,0 +1,17 @@
+1. Nodejs file list in directory -> readdir.js
+
+파일 목록을 출력할 수 있게 코드들이 있다.
+반복적으로 처리해서 새로운 결과물을 만들 수 있다.
+
+2. main3.js
+
+list = list + `<li><a href="/?id=${filelist[i]}">${filelist[i]}</a></li>`;
+이
+filelist[i] 부분을 사용하여 목록을 처리할 수 있다.
+
+
+3. 함수를 이용해서 코드 정돈하기 main.4.js
+
+  var list = templateList(filelist);
+  var template = templateHTML(title, list, `<h2>${title}</h2>${des2}`);
+각 타이틀 리스트 바디부분을 변수로 사용하여 데이터를 삽입할 수 있다.
