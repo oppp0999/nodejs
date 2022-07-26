@@ -1,0 +1,65 @@
+동기와 비동기, 콜백, 패키지와 PM2
+
+1. 동기, 비동기
+
+nodejs.org 공식 홈페이지 -> org -> 버전 선택
+
+각 함수들을 찾아볼 수 있는데 
+
+fs.readfile, readfilesynk 두 가지가 존재한다.
+
+console.log('A');
+var result = fs.readFileSync('syntax/sample.txt', 'utf8'); //동기
+console.log(result);
+console.log('C');
+A
+B
+C
+
+console.log('A');
+fs.readFile('syntax/sample.txt', 'utf8', function(err, result){
+    console.log(result);
+});
+console.log('C');
+A
+C
+B
+
+nodejs 성능을 끌어올리기 위해서 -> 비동기식으로 선택
+
+
+2. 콜백 -> callback.js
+
+a는 값으로써 함수를 들고 있는데
+
+slowfunc에서 파라미드터는 a의 함수를 가지게 되는데
+callback을 일으키면 a가 실행이 된다.
+즉 callback = a이다.
+콜백함수는 파라미터가 반드시 함수일 때이다.
+비동기 처리를 하기 위해서
+리소스를 줄여서 원하는 타이밍에 실행시키기위해서 -> 비동기는 마지막에 처리되기때문
+1
+A
+2
+
+
+3. pm2 -> npm 패키지 매니저이다.
+파일 수정되면 자동으로 파일이 자동을 수정됨 즉 껏다 안켜도됨
+
+  Start and Daemonize any application:
+                $ pm2 start app.js
+
+                Load Balance 4 instances of api.js:
+                $ pm2 start api.js -i 4
+
+                Monitor in production:
+                $ pm2 monitor
+
+                Make pm2 auto-boot at server restart:
+                $ pm2 startup
+
+pm2 start main.js --watch -> 수정이 되어도 자동으로 다시 실행됨
+ 
+코드에 문제가 발생할 수 있는데 pm2 log를 이용해서 에러를 확인할 수 있다.
+
+
