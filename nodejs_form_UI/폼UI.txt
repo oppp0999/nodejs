@@ -1,0 +1,52 @@
+html formui
+
+1. create라는 부분을 생성하여 값을 실제로 넘겨볼 수 있다. -> formui_create.js
+
+placeholder= 속성은 텍스트에 값이 없을 때 hint를 나타낸다
+
+
+2. 날라온 정보를 새 사이트에서 받기 위함 -> nodejs post data -> formui_create0.js
+else if(pathname === '/create_process'){
+
+
+
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                request.connection.destroy();
+        });
+이 코드는 값이 너무 크게들어올 때 보안을 위해서 사용
+
+request.on 부분이 콜백되면서 데이터값들을 뽑아낼 수 있다. -> on 부분
+
+
+3. 데이터를 받아서 파일에 저장하고 페이지로 리다이렉션하는 방법 -> fs.writeFile(file, data[, options], callback) -> formui_create1.js
+
+function에서 err는 처리하지 않음
+
+리다이랙션을 위해서 response.writeHead(302, 을 변경해준다.
+301 -> 영원히 바뀜
+302 -> 일시적으로 id주소값이 그 데이터로 바뀜
+
+
+
+4. 수정하는 update 이벤트 버튼 만들기 -> 본문에서 control이라는 부분을 만들어준다. -> formui_create2.js
+파라미터에 control생성
+
+본문을 control로 묶은 뒤에 표시하는 template 부분에 홈에서는 create부분을 표시하고
+다른 id값이 있는 주소에 접속했을 때는 create와 update 버튼이 보이게 코드를 수정한다. 그리고 /update?id=${title}로 지정하면서 주소 id이름을 그대로 사용한다.
+
+
+5. 수정할 내용을 서버로 전송하는 법 -> formui_create3.js
+
+
+메뉴얼 -> 제목과 본문 내용을 update를 통해서 수정할 수 있지만 제목을 수정할 때 주소와 연결되어있기에 주소는 고정하고 title을 따로 만들어줘야한다.
+그 주소 값이 달려있는 원래 제목 title hidden으로 숨긴다.
+
+페이지 소스를 보면 네트워크에 값이 전송이 된후 헤더에 요청된 데이터를 확인하면 id: CSS, title: CSS3 로 id는 고정인 것을 알 수 있다.
+ 
+
+
+
+
+
