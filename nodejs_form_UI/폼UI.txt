@@ -46,6 +46,9 @@ function에서 err는 처리하지 않음
 페이지 소스를 보면 네트워크에 값이 전송이 된후 헤더에 요청된 데이터를 확인하면 id: CSS, title: CSS3 로 id는 고정인 것을 알 수 있다.
  
 
+6. nodejs file rename -> formui_create4.js
+
+
 
 
 
