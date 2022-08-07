@@ -1,0 +1,10 @@
+객체를 다시 한 번 묶을 수 있게 모듈을 이용한다.
+
+모듈 파일 -> mpart.js
+
+실행 파일 -> muse.js
+
+
+APP을 이용한 예시
+form_temp.js
+lib/template.js
