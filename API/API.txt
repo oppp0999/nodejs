@@ -1,0 +1,18 @@
+API란
+
+애플리케이션 프로그래밍 인터페이스
+
+인터페이스는 하나의 약속이고
+리드파일을 이용해서 애플리케이션을 만든다.
+
+1. nodejs 기준으로 createServer API 
+
+var http = require('http'); 를 서버로 사용하고
+http 에서 변수 파라미터를 createServer(function(request,response)로 받고
+  response.writeHead(200);
+  response.end(html);
+각 부분으로 반환한다 마지막으로
+
+app.listen(3000); 으로 포트 3000으로 설정되어있는데
+
+서버에서 3000번에 대기를 하고있다가 요청 3000이 되었을 때 우리가 만든 애플리케이션을 실행할 수 있게한다.

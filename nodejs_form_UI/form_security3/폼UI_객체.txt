@@ -1,3 +1,29 @@
 1. 입력정보에 대한 보안
 
-1.1 nodejs path.parse
+1.1 nodejs path.parse -> formui_input.js
+변수, 함수를 이용해서 주소값을 차ㅏ단시켜서 외부에 값을 내보내지않도록 만든다.
+
+  var filteredId = path.parse(queryData.id).base;
+
+2. 출력정보에 대한 보안 -> formui_output.js
+2.1
+만약에 출력글에 사용자가 태그를 사용하여 강제로 다른 뜻으로 만드는 것을 방지하기 위해서
+태그부분을 글로 지워버린다. -> < 은 &lt; 으로
+
+2.2 npm sanitize html
+
+npm init -> 패키지를 직접 관리할 수 있는 명령어
+
+npm install -S sanitize-html -> 부품 설치
+
+모듈이 생기게되는데 거기서 sanitize-html이 있는 걸확인할 수 있다.
+
+package.json을 보면
+"sanitize-html": "^2.7.1"으로 의존하는 것을 확인할 수 있다.
+
+코드에서 description 이부분을 필터하면 해킹을 막을 수 있다.
+
+ sanitizeHtml(description, {
+              allowedTags:['h1']
+
+이부분은 h1태그는 허용할 수 있다.
