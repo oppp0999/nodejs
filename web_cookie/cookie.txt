@@ -1,0 +1,26 @@
+1. http cookie -> cookie.js
+기본 정보와 사용 문법, 함수를 찾아 볼 수 있다.
+
+기본적으로 페이지 소스 -> 네트워크에서 response headers에는 쿠키에 대한 언급이 없다
+
+   response.writeHead(200, {
+        'Set-Cookie' : ['yummy_cookie=choco', 'tasty_cookie=strawberry']
+    });
+
+    response.end('Cookie!!');
+
+하게 되면 네트워크에 두개의 쿠키가 존재하게 되고
+쿠키를 주석처리하고도 지우고 싶다면 어플리케이션에서 쿠키의 존재를 직접 삭제하면된다.
+
+2. 쿠키의 읽기 how to. it cookie in nodejs
+console.log(request.headers.cookie);
+
+npm cookie -> 쿠키를 뒤져서 핸들링할 수 있음
+npm install -s cookie
+
+parse라는 매소를 가지고 이용할 수 있음.
+var cookies = cookie.parse(request.parse.cookie);
+
+parse는 undefine을 허용할 수 없기때문에
+
+undefine 부분을 if 처리해준다.
