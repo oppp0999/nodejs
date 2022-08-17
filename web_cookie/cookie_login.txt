@@ -1,0 +1,17 @@
+1. login을 위해서 먼저 a href="/login"
+페이지를 추가하고
+
+각 패스부분을 정리해준다. -> form
+<p>에서 type password를 사용할 경우는 숨겨질 때
+login proccess에서 받아서 처리한다.
+
+
+2. 로그인 상태 체크 + 로그아웃
+
+간결함을 위해서 
+
+function authIsOwner(request, response){
+
+function authStatusUI(request, response){
+
+authStatusUI = '<a href="/login">login</a>' 으로 -> logout을 새로 정의해주면서 logout표시가능

@@ -24,3 +24,33 @@ var cookies = cookie.parse(request.parse.cookie);
 parse는 undefine을 허용할 수 없기때문에
 
 undefine 부분을 if 처리해준다.
+
+
+3. 휘발성 쿠키(session cookie) vs 비휘발성 쿠키 (permanent cookie)
+
+max-age -> 얼마 동안 살아있나
+expires -> 언제 만료
+ `Permanent=cookies; Max-Age=${60*60*24*30}`
+
+4. secure & httponly
+Http 통해서만 가능
+쿠키를 훔쳐가는 행위를 막는 방법
+https에서만 전송됨
+
+'Secure=Secure; Secure', -> http에서만 보임
+'HttpOnly=HttpOnly; HttpOnly' -> 자바 스크립트를 이용해서 가져가지 못함
+
+
+5. cookie의 유효범위 - path & domain
+'Path=Path; Path=/cookie', -> 어느 path에서 동작하는 cookie
+'Doamin=Domain; Domain=test.o2.org' -> 어떤 도메인에서 동작하는 cookie
+
+
+
+
+
+
+
+
+
+
